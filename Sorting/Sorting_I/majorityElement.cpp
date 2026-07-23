@@ -15,3 +15,15 @@ public:
         return nums[nums.size()/2];
     }
 };
+
+int main() {
+    Solution solver;
+    
+    vector<int> nums = {2, 2, 1, 1, 1, 2, 2};
+    
+    int result = solver.majorityElement(nums);
+    
+    cout << "The majority element is: " << result << endl;
+    
+    return 0;
+}
