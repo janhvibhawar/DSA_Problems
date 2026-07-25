@@ -3,21 +3,21 @@ using namespace std;
 
 class Solution {
 public:
-    void recursiveBubbleSort(vector<int>& nums, int n) {
-        if (n <= 1) {
-            return;
-        }
-        for (int i = 0; i < n - 1; i++) {
-            if (nums[i] > nums[i + 1]) {
-                swap(nums[i], nums[i + 1]);
-            }
-        }
 
-        recursiveBubbleSort(nums, n - 1);
-    }
+void recursiveInsertionSort(vector<int> &nums, int n){
+    if(n<=1) return;
 
-    vector<int> bubbleSort(vector<int>& nums) {
-        recursiveBubbleSort(nums, nums.size());
+    recursiveInsertionSort(nums,n-1);
+
+        int j = n - 1;
+        while(j>0 && nums[j-1]>nums[j]){
+            swap(nums[j],nums[j-1]);
+            j--;
+        }
+}
+
+vector<int> insertionSort(vector<int>& nums) {
+        recursiveInsertionSort(nums,nums.size());
         return nums;
     }
 };
@@ -33,7 +33,7 @@ int main(){
     }
     cout << endl;
     
-    solver.bubbleSort(nums);
+    solver.insertionSort(nums);
     
     cout << "Sorted array:   ";
     for(int num : nums) {
