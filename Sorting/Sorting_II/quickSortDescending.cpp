@@ -7,11 +7,11 @@ int pivot(vector<int> &nums, int low, int high){
     int j = high;
 
     while(i < j){
-        while(nums[i]<=pivotValue && i <= high - 1){
+        while(nums[i]>=pivotValue && i <= high - 1){
             i++;
         }
 
-        while(nums[j]>pivotValue && j >= low + 1){
+        while(nums[j]<pivotValue && j >= low + 1){
             j--;
         }
 
@@ -38,17 +38,17 @@ vector<int> quickSort(vector<int> &nums){
 }
 
 int main() {
-
+    
     vector<int> arr1 = {4, 6, 2, 5, 7, 9, 1, 3, 2, 8};
     
     cout << "Original Array: ";
     for(int x : arr1) cout << x << " ";
     cout << endl;
 
-
+    
     quickSort(arr1);
 
-    cout << "Sorted Array in Ascending Order:   ";
+    cout << "Sorted Array in descending order:   ";
     for(int x : arr1) cout << x << " ";
     cout << endl;
 
